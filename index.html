@@ -9,6 +9,15 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
+
+      /* Flex layout for sticky footer */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1; /* pushes footer down */
     }
 
     /* Hero Section */
@@ -65,7 +74,7 @@
       margin-bottom: 10px;
     }
 
-    /* Quick Links */
+    /* Footer */
     footer {
       background: navy;
       color: white;
@@ -86,27 +95,29 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Building Wealth, Securing Futures.</h1>
-    <p>Trusted asset management and financial advisory services in Botswana.</p>
-    <div class="cta-buttons">
-      <a href="services.html">Get Started</a>
-      <a href="contact.html">Book a Consultation</a>
-    </div>
-  </section>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Building Wealth, Securing Futures.</h1>
+      <p>Trusted asset management and financial advisory services in Botswana.</p>
+      <div class="cta-buttons">
+        <a href="services.html">Get Started</a>
+        <a href="contact.html">Book a Consultation</a>
+      </div>
+    </section>
 
-  <!-- Highlights -->
-  <section class="highlights">
-    <div class="highlight">
-      <img src="images/experience.png" alt="Expertise Icon">
-      <p>10+ Years of Expertise</p>
-    </div>
-    <div class="highlight">
-      <img src="images/trust.png" alt="Trust Icon">
-      <p>Trusted by Professionals, Businesses & Investors</p>
-    </div>
-  </section>
+    <!-- Highlights -->
+    <section class="highlights">
+      <div class="highlight">
+        <img src="images/experience.png" alt="Expertise Icon">
+        <p>10+ Years of Expertise</p>
+      </div>
+      <div class="highlight">
+        <img src="images/trust.png" alt="Trust Icon">
+        <p>Trusted by Professionals, Businesses & Investors</p>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>

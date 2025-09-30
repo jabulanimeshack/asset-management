@@ -9,37 +9,30 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
-
-      /* Flex layout for sticky footer */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     main {
-      flex: 1; /* pushes footer down */
+      flex: 1;
     }
-
-    /* Hero Section */
     .hero {
       background: url('images/hero-bg.jpeg') no-repeat center center/cover;
       color: white;
       text-align: center;
       padding: 120px 20px;
+      position: relative;
       background-color: rgba(0, 0, 64, 0.85);
     }
-
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 15px;
       color: gold;
     }
-
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 25px;
     }
-
     .cta-buttons a {
       background: gold;
       color: navy;
@@ -50,44 +43,36 @@
       border-radius: 5px;
       transition: 0.3s;
     }
-
     .cta-buttons a:hover {
       background: navy;
       color: gold;
       border: 2px solid gold;
     }
-
-    /* Highlights */
     .highlights {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 60px;
       margin: 40px 20px;
     }
-
     .highlight {
       text-align: center;
     }
-
-    .highlight img {
+    .highlight img.icon {
       width: 60px;
+      height: 60px;
       margin-bottom: 10px;
     }
-
-    /* Footer */
     footer {
       background: navy;
       color: white;
       text-align: center;
       padding: 15px;
     }
-
     footer a {
       color: gold;
       margin: 0 10px;
       text-decoration: none;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
@@ -96,7 +81,6 @@
 <body>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero">
       <h1>Building Wealth, Securing Futures.</h1>
       <p>Trusted asset management and financial advisory services in Botswana.</p>
@@ -106,20 +90,27 @@
       </div>
     </section>
 
-    <!-- Highlights -->
     <section class="highlights">
+      <!-- Enterprise / Business highlight -->
       <div class="highlight">
-        <img src="images/experience.png" alt="Expertise Icon">
-        <p>10+ Years of Expertise</p>
+        <img class="icon" src="images/enterprise-icon.png" alt="Enterprise Icon">
+        <p>Serving Businesses & Enterprises</p>
       </div>
+
+      <!-- Trust / Reliability highlight -->
       <div class="highlight">
-        <img src="images/trust.png" alt="Trust Icon">
-        <p>Trusted by Professionals, Businesses & Investors</p>
+        <img class="icon" src="images/trust-icon.png" alt="Trust Icon">
+        <p>Built on Trust & Integrity</p>
+      </div>
+
+      <!-- If you also want the 10+ Years & Trusted by Investors, you could keep old ones too -->
+      <div class="highlight">
+        <img class="icon" src="images/experience-icon.png" alt="Experience Icon">
+        <p>10+ Years of Expertise</p>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>Quick Links:
       <a href="services.html">Services</a> |

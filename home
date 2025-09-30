@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Building Wealth — Asset Management in Botswana</title>
+  <meta name="description" content="Trusted asset management and financial advisory services in Botswana. Building Wealth, Securing Futures." />
+  <style>
+    :root{
+      --navy: #0b2340;
+      --navy-2: #0f3656;
+      --gold: #cfa84b;
+      --gold-dark: #b08834;
+      --muted: #8b98a6;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--navy) 0%, #07172a 100%);
+      color: #eef6fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Layout */
+    .container{max-width:1200px;margin:0 auto;padding:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
+    .brand .logo{
+      width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px;
+      background: linear-gradient(135deg,var(--gold) 0%, var(--gold-dark) 60%);
+      box-shadow: 0 6px 18px rgba(11,35,64,0.45), inset 0 -6px 10px rgba(0,0,0,0.08);
+    }
+    .brand h1{font-size:18px;margin:0;line-height:1;color:#071724}
+    .brand p{margin:0;font-size:12px;color:rgba(7,23,36,0.7)}
+
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;align-items:center}
+    nav a{color:var(--gold);text-decoration:none;font-weight:600}
+    .quick-links{color:var(--gold);font-weight:600}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:36px;
+      align-items:center;
+      padding:48px 0 64px;
+    }
+    .hero-left{max-width:720px}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--gold);font-weight:700;font-size:13px;margin-bottom:18px}
+    .headline{font-size:44px;line-height:1.02;margin:0 0 18px;color: #fff;font-weight:700}
+    .subtext{color:var(--muted);font-size:18px;margin-bottom:28px}
+    .ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      padding:12px 18px;border-radius:12px;font-weight:700;border:2px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:10px;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg,var(--gold) 0%, var(--gold-dark) 100%);
+      color: #071724;
+      box-shadow: 0 8px 28px rgba(207,168,75,0.18);
+    }
+    .btn-outline{
+      background:transparent;color:var(--gold);border-color:rgba(255,255,255,0.08);backdrop-filter: blur(6px);
+    }
+    .btn:active{transform:translateY(1px)}
+    .hero-highlights{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap}
+    .highlight{
+      background: rgba(255,255,255,0.03);
+      padding:14px 18px;border-radius:12px;min-width:180px;
+      box-shadow: inset 0 -4px 10px rgba(0,0,0,0.15);
+    }
+    .highlight strong{display:block;font-size:18px;color:var(--gold);margin-bottom:6px}
+    .highlight span{color:var(--muted);font-size:13px}
+
+    /* Visual panel (eagle + stone) */
+    .visual{
+      display:flex;align-items:center;justify-content:center;padding:28px;border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      box-shadow: 0 12px 36px rgba(2,8,15,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .visual svg{width:100%;height:auto;max-width:360px}
+
+    /* Footer quicklinks row */
+    .quick-row{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:40px;color:var(--muted)}
+    .quick-row a{color:var(--gold);text-decoration:none;font-weight:700}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns: 1fr; text-align:center}
+      .hero-left{order:2}
+      .visual{order:1}
+      header{gap:12px}
+      .brand h1{font-size:16px}
+      .headline{font-size:32px}
+    }
+
+    @media (max-width:420px){
+      .headline{font-size:26px}
+      .brand .logo{width:52px;height:52px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="banner">
+    <header aria-label="Top navigation">
+      <a href="#" class="brand" aria-label="Company home">
+        <div class="logo" aria-hidden="true">
+          <!-- small stylized stone + eagle mark -->
+          <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0" y="0" width="64" height="64" rx="12" fill="#071724" />
+            <path d="M18 36c6-8 14-8 20 0" stroke="#FFE6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 26c4-6 12-6 16 0" stroke="#F6DFA0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="20" r="2.2" fill="#F7E3AE"/>
+          </svg>
+        </div>
+        <div>
+          <h1 style="color:var(--gold)">Aquila Stone Capital</h1>
+          <p style="color:rgba(255,255,255,0.87);font-weight:600">Building Wealth</p>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li class="quick-links"><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero section">
+        <div class="hero-left">
+          <span class="eyebrow" aria-hidden="true">Eagle · Stone · Legacy</span>
+          <h2 class="headline">Building Wealth, Securing Futures.</h2>
+          <p class="subtext">Trusted asset management and financial advisory services in Botswana.</p>
+
+          <div class="ctas" role="group" aria-label="Primary call to actions">
+            <a class="btn btn-primary" href="#get-started" id="getStartedBtn">
+              <!-- icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v20M2 12h20" stroke="#071724" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Get Started
+            </a>
+            <a class="btn btn-outline" href="#book" id="bookBtn">Book a Consultation</a>
+          </div>
+
+          <div class="hero-highlights" aria-hidden="false">
+            <div class="highlight" role="note" aria-label="Experience">
+              <strong>10+ Years of Expertise</strong>
+              <span>Decade of experience advising investors & institutions.</span>
+            </div>
+
+            <div class="highlight" role="note" aria-label="Trusted">
+              <strong>Trusted by Professionals</strong>
+              <span>Serving professionals, businesses & long-term investors.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="visual" aria-hidden="false" aria-label="Brand visual — eagle and stone motif">
+          <!-- Stylized eagle + stone composition (SVG) -->
+          <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle svgDesc">
+            <title id="svgTitle">Eagle and Stone emblem</title>
+            <desc id="svgDesc">Stylized gold eagle wing over a textured stone crest. Colors navy and gold.</desc>
+
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#f7e3ae"/>
+                <stop offset="1" stop-color="#cfa84b"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="8" result="b"/>
+                <feBlend in="SourceGraphic" in2="b"/>
+              </filter>
+            </defs>
+
+            <!-- stone base -->
+            <g transform="translate(50,60) scale(0.85)">
+              <path d="M300 520c120 0 220-80 240-190 6-36-6-88-32-120-36-48-112-72-208-72s-172 24-208 72c-26 32-38 84-32 120 20 110 120 190 240 190z"
+                    fill="#0b2340" opacity="0.18"/>
+              <path d="M300 520c120 0 220-80 240-190 6-36-6-88-32-120-36-48-112-72-208-72s-172 24-208 72c-26 32-38 84-32 120 20 110 120 190 240 190z"
+                    fill="url(#g1)" opacity="0.06" />
+              <g transform="translate(0,-20)" fill="none" stroke="rgba(7,23,36,0.14)" stroke-width="6">
+                <path d="M90 310c60-110 240-110 300 0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M120 350c70-80 220-80 290 0" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+
+            <!-- eagle wings -->
+            <g transform="translate(0,-20)">
+              <path d="M110 260c110-120 310-140 380 0" fill="none" stroke="url(#g1)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft)"/>
+              <path d="M120 300c90-100 300-110 360 0" fill="none" stroke="#f7e3ae" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M170 220c80-50 200-50 280 0" fill="none" stroke="#cfa84b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+
+            <!-- subtle stone texture lines -->
+            <g opacity="0.06" stroke="#071724" stroke-width="2">
+              <path d="M160 380c40-20 120-28 200 0" stroke-linecap="round"/>
+              <path d="M140 420c50-8 160-8 260 0" stroke-linecap="round"/>
+            </g>
+
+          </svg>
+        </aside>
+      </section>
+
+      <div class="quick-row" role="navigation" aria-label="Quick links">
+        <div>Quick links → <a href="#services">Services</a> | <a href="#about">About Us</a> | <a href="#contact">Contact</a></div>
+        <div style="font-size:13px">Serving Botswana • <span style="color:var(--muted)">Secure, regulated advice</span></div>
+      </div>
+    </main>
+
+    <footer style="padding:22px 0 60px;color:var(--muted);font-size:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <strong style="color:var(--gold)">Aquila Stone Capital</strong> — All rights reserved.</div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="#privacy" style="color:var(--muted);text-decoration:none">Privacy</a>
+          <a href="#terms" style="color:var(--muted);text-decoration:none">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple: smooth scroll for in-page links + minimal analytics hooks
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Fallback CTA actions (replace with real links / form handlers)
+    document.getElementById('getStartedBtn').addEventListener('click', (e)=>{
+      // demo: open contact section or signup (placeholder)
+      if(!document.querySelector('#get-started')){
+        e.preventDefault();
+        alert('Get Started — replace with your signup or client onboarding flow.');
+      }
+    });
+
+    document.getElementById('bookBtn').addEventListener('click', (e)=>{
+      if(!document.querySelector('#book')){
+        e.preventDefault();
+        alert('Book a Consultation — replace with calendar/booking integration.');
+      }
+    });
+  </script>
+</body>
+</html>

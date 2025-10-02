@@ -71,6 +71,11 @@
       height: 60px;
       margin-bottom: 10px;
     }
+    .highlight .counter {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: navy;
+    }
     .about {
       background: white;
       padding: 60px 20px;
@@ -127,7 +132,7 @@
     </section>
 
     <!-- Highlights Section -->
-    <section class="highlights">
+    <section class="highlights" id="highlights">
       <div class="highlight">
         <img class="icon" src="enterprise icon.png" alt="Enterprise Icon">
         <p>Serving Businesses & Enterprises</p>
@@ -138,7 +143,7 @@
       </div>
       <div class="highlight">
         <img class="icon" src="experience.webp" alt="Experience Icon">
-        <p>10+ Years of Expertise</p>
+        <p><span class="counter" data-target="10">0</span>+ Years of Expertise</p>
       </div>
     </section>
 
@@ -198,6 +203,38 @@
         item.style.transform = "scale(1)";
         item.style.boxShadow = "none";
       });
+    });
+
+    // Counter animation for experience years
+    function animateCounter(counter) {
+      const target = +counter.getAttribute("data-target");
+      const speed = 200; // smaller is faster
+      const updateCount = () => {
+        const value = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+
+        if (value < target) {
+          counter.innerText = value + increment;
+          setTimeout(updateCount, 50);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    }
+
+    let counterStarted = false;
+    window.addEventListener("scroll", () => {
+      const highlights = document.getElementById("highlights");
+      const position = highlights.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+
+      if (position < screenPosition && !counterStarted) {
+        document.querySelectorAll(".counter").forEach(counter => {
+          animateCounter(counter);
+        });
+        counterStarted = true;
+      }
     });
   </script>
 </body>

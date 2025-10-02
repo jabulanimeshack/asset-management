@@ -1,254 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eagle Stone | Services</title>
-  <style>
-    /* Reset & Global */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      color: white;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eagle Stone | Services</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-    /* Background Wallpapers */
-    .backgrounds {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    .bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-    .bg.active {
-      opacity: 1;
-    }
+  a { text-decoration: none; }
 
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,64,0.8);
-      color: gold;
-      display: flex;
-      justify-content: center;
-      padding: 15px;
-      z-index: 100;
-    }
-    nav a {
-      color: gold;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+  header {
+    background: navy;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 10;
+  }
+  header nav a {
+    color: gold;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  header nav a:hover {
+    text-decoration: underline;
+  }
 
-    /* Main Layout */
-    main {
-      padding-top: 80px;
-      width: 80%;
-      margin: auto;
-    }
+  /* Hero */
+  .hero {
+    padding: 100px 20px;
+    color: gold;
+    position: relative;
+    z-index: 10;
+  }
+  .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+  .hero p { font-size: 1.2rem; }
 
-    section {
-      margin: 80px 0;
-      padding: 40px;
-      background: rgba(0,0,64,0.7);
-      border-radius: 12px;
-      text-align: center;
-    }
+  /* Services */
+  .services, .why-choose {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+  }
+  .services h2, .why-choose h2 {
+    color: gold;
+    margin-bottom: 30px;
+  }
 
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: gold;
-    }
+  .service, .reason {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 1s ease;
+  }
+  .fade-left { transform: translateX(-100px); }
+  .fade-right { transform: translateX(100px); }
 
-    .service {
-      margin: 40px 0;
-      padding: 25px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: all 1s ease;
-    }
+  .service a.cta-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: gold;
+    color: navy;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .service a.cta-button:hover {
+    background: navy;
+    color: gold;
+    border: 2px solid gold;
+  }
 
-    .service.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  /* Fullscreen Backgrounds */
+  .backgrounds {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .backgrounds img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+  .backgrounds img.active { opacity: 1; }
 
-    .service h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: gold;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      margin-top: 15px;
-      background: gold;
-      color: navy;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .cta-btn:hover {
-      background: navy;
-      color: gold;
-      border: 2px solid gold;
-    }
-
-    /* Footer */
-    footer {
-      background: navy;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-    }
-    footer a {
-      color: gold;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  /* Footer */
+  footer {
+    background: navy;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
+  }
+  footer a {
+    color: gold;
+    margin: 0 10px;
+  }
+  footer a:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
-  <!-- Background wallpapers -->
-  <div class="backgrounds">
-    <div class="bg active" style="background-image: url('garden.jpg');"></div>
-    <div class="bg" style="background-image: url('glasses.jpg');"></div>
-    <div class="bg" style="background-image: url('stocks.jpg');"></div>
-  </div>
 
-  <!-- Navbar -->
+<!-- Fullscreen Backgrounds -->
+<div class="backgrounds">
+  <img src="garden.jpg" class="bg-img active">
+  <img src="glasses.jpg" class="bg-img">
+  <img src="stocks.jpg" class="bg-img">
+</div>
+
+<!-- Header Navigation -->
+<header>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </nav>
+</header>
 
-  <main>
-    <!-- Services Section -->
-    <section>
-      <h2>Our Services</h2>
+<!-- Hero -->
+<section class="hero">
+  <h1>Our Services</h1>
+  <p>Professional financial solutions tailored for individuals and businesses.</p>
+</section>
 
-      <div class="service">
-        <h3>Asset Management</h3>
-        <p>Customized investment portfolios, wealth growth strategies.</p>
-        <p><strong>Benefits:</strong> Tailored investment solutions, risk diversification, long-term value growth.</p>
-        <p><strong>Who it's for:</strong> Individuals and businesses seeking structured investment strategies.</p>
-        <a href="contact.html" class="cta-btn">Schedule a Consultation</a>
-      </div>
+<!-- Services Section -->
+<section class="services">
+  <h2>What We Offer</h2>
 
-      <div class="service">
-        <h3>Wealth Management</h3>
-        <p>Estate planning, retirement solutions, insurance advisory.</p>
-        <a href="contact.html" class="cta-btn">Schedule a Consultation</a>
-      </div>
+  <div class="service fade-left">
+    <h3>Asset Management</h3>
+    <p>Customized investment portfolios, wealth growth strategies.</p>
+    <ul>
+      <li>Benefits: Personalized portfolio growth.</li>
+      <li>Who it’s for: Individuals & businesses looking to grow wealth.</li>
+    </ul>
+    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+  </div>
 
-      <div class="service">
-        <h3>Financial Advisory</h3>
-        <p>Corporate advisory, risk management, capital structuring.</p>
-        <a href="contact.html" class="cta-btn">Schedule a Consultation</a>
-      </div>
+  <div class="service fade-right">
+    <h3>Wealth Management</h3>
+    <p>Estate planning, retirement solutions, insurance advisory.</p>
+    <ul>
+      <li>Benefits: Secure long-term financial stability.</li>
+      <li>Who it’s for: Families and individuals planning for the future.</li>
+    </ul>
+    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+  </div>
 
-      <div class="service">
-        <h3>Investment Solutions</h3>
-        <p>Stocks, bonds, real estate, private equity opportunities.</p>
-        <a href="contact.html" class="cta-btn">Schedule a Consultation</a>
-      </div>
+  <div class="service fade-left">
+    <h3>Financial Advisory</h3>
+    <p>Corporate advisory, risk management, capital structuring.</p>
+    <ul>
+      <li>Benefits: Expert corporate guidance.</li>
+      <li>Who it’s for: Businesses seeking financial insight and risk management.</li>
+    </ul>
+    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+  </div>
 
-      <div class="service">
-        <h3>Financial Literacy Programs</h3>
-        <p>Community education, workshops, and seminars.</p>
-        <a href="contact.html" class="cta-btn">Schedule a Consultation</a>
-      </div>
-    </section>
+  <div class="service fade-right">
+    <h3>Investment Solutions</h3>
+    <p>Stocks, bonds, real estate, private equity.</p>
+    <ul>
+      <li>Benefits: Diversified investment opportunities.</li>
+      <li>Who it’s for: Investors seeking high-potential returns.</li>
+    </ul>
+    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+  </div>
 
-    <!-- Why Choose Us -->
-    <section>
-      <h2>Why Choose Eagle Stone</h2>
+  <div class="service fade-left">
+    <h3>Financial Literacy Programs</h3>
+    <p>Community education, workshops, and seminars.</p>
+    <ul>
+      <li>Benefits: Improved financial knowledge.</li>
+      <li>Who it’s for: Students, entrepreneurs, and communities.</li>
+    </ul>
+    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+  </div>
+</section>
 
-      <div class="service">
-        <p>Trust & Expertise in the Botswana Market</p>
-      </div>
-      <div class="service">
-        <p>Strong Ethical Foundation</p>
-      </div>
-      <div class="service">
-        <p>Client-Centered Approach</p>
-      </div>
-      <div class="service">
-        <p>Proven Strategies for Long-Term Growth</p>
-      </div>
-      <div class="service">
-        <p>Global + Local Insights</p>
-      </div>
-    </section>
-  </main>
+<!-- Why Choose Eagle Stone -->
+<section class="why-choose">
+  <h2>Why Choose Eagle Stone</h2>
+  <div class="reason fade-right"><p>Trust & Expertise in the Botswana Market</p></div>
+  <div class="reason fade-left"><p>Strong Ethical Foundation</p></div>
+  <div class="reason fade-right"><p>Client-Centered Approach</p></div>
+  <div class="reason fade-left"><p>Proven Strategies for Long-Term Growth</p></div>
+  <div class="reason fade-right"><p>Global + Local Insights</p></div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>
-      <a href="services.html">Services</a> | 
-      <a href="about.html">About Us</a> | 
-      <a href="contact.html">Contact</a>
-    </p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <p>Quick Links:
+    <a href="index.html">Home</a> |
+    <a href="about.html">About Us</a> |
+    <a href="services.html">Services</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
 
-  <!-- JavaScript for animations -->
-  <script>
-    // Background wallpaper fade
-    const bgs = document.querySelectorAll('.bg');
-    let current = 0;
-    setInterval(() => {
-      bgs[current].classList.remove('active');
-      current = (current + 1) % bgs.length;
-      bgs[current].classList.add('active');
-    }, 6000);
+<script>
+// Fade-in staggered animation on scroll
+const fadeElements = document.querySelectorAll('.fade-left, .fade-right');
+function fadeOnScroll() {
+  fadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) {
+      el.style.opacity = 1;
+      el.style.transform = 'translateX(0)';
+    } else {
+      el.style.opacity = 0;
+      if(el.classList.contains('fade-left')) el.style.transform = 'translateX(-100px)';
+      if(el.classList.contains('fade-right')) el.style.transform = 'translateX(100px)';
+    }
+  });
+}
+window.addEventListener('scroll', fadeOnScroll);
+window.addEventListener('load', fadeOnScroll);
 
-    // Scroll reveal animations
-    const services = document.querySelectorAll('.service');
-    const revealOnScroll = () => {
-      services.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
-        } else {
-          el.classList.remove('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-  </script>
+// Fullscreen Backgrounds fade on scroll
+const bgImgs = document.querySelectorAll('.backgrounds .bg-img');
+window.addEventListener('scroll', () => {
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.scrollHeight - window.innerHeight;
+  let scrollPercent = scrollTop / docHeight;
+  let index = Math.min(Math.floor(scrollPercent * bgImgs.length), bgImgs.length - 1);
+  bgImgs.forEach((bg, i) => { bg.classList.toggle('active', i === index); });
+});
+</script>
+
 </body>
 </html>

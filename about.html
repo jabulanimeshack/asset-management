@@ -12,7 +12,8 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      scroll-behavior: smooth;
+      scroll-behavior: auto; /* disable CSS instant smooth scroll, we'll use JS */
+      overflow-y: scroll;
     }
     main {
       flex: 1;
@@ -193,7 +194,7 @@
       }
     });
 
-    // Highlight hover effects with JS
+    // Highlight hover effects
     document.querySelectorAll(".highlight").forEach(item => {
       item.addEventListener("mouseenter", () => {
         item.style.transform = "scale(1.1)";
@@ -205,17 +206,20 @@
       });
     });
 
-    // Counter animation for experience years
+    // Counter animation for experience years (slower)
     function animateCounter(counter) {
       const target = +counter.getAttribute("data-target");
-      const speed = 200; // smaller is faster
-      const updateCount = () => {
-        const value = +counter.innerText;
-        const increment = Math.ceil(target / speed);
+      const duration = 3000; // 3 seconds
+      const stepTime = 100;  // update every 100ms
+      const steps = duration / stepTime;
+      const increment = target / steps;
+      let current = 0;
 
-        if (value < target) {
-          counter.innerText = value + increment;
-          setTimeout(updateCount, 50);
+      const updateCount = () => {
+        current += increment;
+        if (current < target) {
+          counter.innerText = Math.floor(current);
+          setTimeout(updateCount, stepTime);
         } else {
           counter.innerText = target;
         }
@@ -236,6 +240,27 @@
         counterStarted = true;
       }
     });
+
+    // Smooth, slower scroll
+    let scrollTimeout;
+    window.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const scrollAmount = e.deltaY * 0.3; // reduce scroll speed
+      const targetScroll = window.scrollY + scrollAmount;
+
+      if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+
+      function smoothScroll() {
+        const currentScroll = window.scrollY;
+        const distance = targetScroll - currentScroll;
+        window.scrollTo(0, currentScroll + distance * 0.1);
+
+        if (Math.abs(distance) > 1) {
+          scrollTimeout = requestAnimationFrame(smoothScroll);
+        }
+      }
+      smoothScroll();
+    }, { passive: false });
   </script>
 </body>
 </html>

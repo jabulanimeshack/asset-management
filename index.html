@@ -39,16 +39,32 @@
     transition: opacity 1.5s ease-in-out;
   }
 
-  /* Hero Section */
-  .hero {
-    padding: 120px 20px;
-    max-width: 900px;
-    margin: 0 auto;
+  /* Header */
+  header {
+    text-align: center;
+    padding: 100px 20px 60px;
   }
-  .hero h1 {
+  header h1 {
     font-size: 3rem;
     margin-bottom: 15px;
     color: gold;
+  }
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+    color: gold;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 40px 20px 80px;
+    max-width: 900px;
+    margin: 0 auto;
   }
   .hero p {
     font-size: 1.2rem;
@@ -108,7 +124,7 @@
     transition: all 1.5s ease;
     background: rgba(0,0,0,0.5);
     border-radius: 10px;
-    text-align: center; /* ✅ centers everything */
+    text-align: center;
   }
   section.visible {
     opacity: 1;
@@ -120,13 +136,13 @@
     font-size: 2rem;
   }
   section p {
-    text-align: center; /* ✅ ensures clean uniform look */
+    text-align: center;
   }
   ul {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 600px; /* ✅ keeps bullets centered nicely */
+    max-width: 600px;
     text-align: left;
   }
   ul li {
@@ -195,9 +211,19 @@
   </div>
 
   <main>
+    <!-- Header -->
+    <header>
+      <h1>Building Wealth, Securing Futures.</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
     <!-- Hero -->
     <section class="hero">
-      <h1>Building Wealth, Securing Futures.</h1>
       <p>Trusted asset management and financial advisory services in Botswana.</p>
       <div class="cta-buttons">
         <a href="services.html">Get Started</a>
@@ -317,3 +343,4 @@
 
 </body>
 </html>
+

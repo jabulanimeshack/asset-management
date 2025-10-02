@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
       font-family: Arial, sans-serif;
       color: white;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Wallpaper backgrounds */
@@ -40,12 +42,11 @@
     .content {
       position: relative;
       z-index: 1;
-      padding: 60px 20px;
     }
 
     header {
       text-align: center;
-      padding: 60px 20px;
+      padding: 100px 20px 60px;
     }
 
     header h1 {
@@ -60,11 +61,19 @@
       font-weight: bold;
     }
 
+    /* Sections */
+    section {
+      min-height: 100vh; /* each section fills viewport */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
     /* Service Section */
     .services {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 60px 20px;
     }
 
     .service {
@@ -116,7 +125,6 @@
     .why-choose {
       max-width: 900px;
       margin: 0 auto;
-      padding: 60px 20px;
     }
 
     .why-choose h2 {
@@ -152,7 +160,6 @@
       text-align: center;
       padding: 30px;
       background: rgba(0,0,0,0.6);
-      margin-top: 60px;
     }
   </style>
 </head>
@@ -174,7 +181,7 @@
       </nav>
     </header>
 
-    <section class="services">
+    <section class="services" data-bg="0">
       <div class="service">
         <h2>Asset Management</h2>
         <p>Customized investment portfolios, wealth growth strategies.</p>
@@ -184,7 +191,9 @@
         </ul>
         <a href="#" class="cta">Schedule a Consultation</a>
       </div>
+    </section>
 
+    <section class="services" data-bg="1">
       <div class="service">
         <h2>Wealth Management</h2>
         <p>Estate planning, retirement solutions, insurance advisory.</p>
@@ -194,7 +203,9 @@
         </ul>
         <a href="#" class="cta">Schedule a Consultation</a>
       </div>
+    </section>
 
+    <section class="services" data-bg="2">
       <div class="service">
         <h2>Financial Advisory</h2>
         <p>Corporate advisory, risk management, capital structuring.</p>
@@ -204,29 +215,9 @@
         </ul>
         <a href="#" class="cta">Schedule a Consultation</a>
       </div>
-
-      <div class="service">
-        <h2>Investment Solutions</h2>
-        <p>Stocks, bonds, real estate, private equity.</p>
-        <ul>
-          <li>Benefits: Diversified investment options</li>
-          <li>Who it’s for: Investors & corporates</li>
-        </ul>
-        <a href="#" class="cta">Schedule a Consultation</a>
-      </div>
-
-      <div class="service">
-        <h2>Financial Literacy Programs</h2>
-        <p>Community education, workshops, and seminars.</p>
-        <ul>
-          <li>Benefits: Empowered communities</li>
-          <li>Who it’s for: General public</li>
-        </ul>
-        <a href="#" class="cta">Schedule a Consultation</a>
-      </div>
     </section>
 
-    <section class="why-choose">
+    <section class="why-choose" data-bg="1">
       <h2>Why Choose Eagle Stone</h2>
       <ul>
         <li>Trust & Expertise in the Botswana Market</li>
@@ -237,34 +228,33 @@
       </ul>
     </section>
 
-    <footer>
+    <footer data-bg="0">
       <p>&copy; 2025 Eagle Stone. All Rights Reserved.</p>
     </footer>
   </div>
 
   <script>
-    // Wallpaper cycling
     const wallpapers = document.querySelectorAll(".wallpaper");
-    let current = 0;
+    const sections = document.querySelectorAll("section, footer");
 
-    setInterval(() => {
-      wallpapers[current].classList.remove("active");
-      current = (current + 1) % wallpapers.length;
-      wallpapers[current].classList.add("active");
-    }, 6000);
-
-    // Scroll animations
+    // Scroll animations for content
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
+
+          // Change wallpaper based on data-bg
+          let bgIndex = entry.target.getAttribute("data-bg");
+          if(bgIndex !== null){
+            wallpapers.forEach(w => w.classList.remove("active"));
+            wallpapers[bgIndex].classList.add("active");
+          }
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.5 });
 
-    document.querySelectorAll(".service, .why-choose li").forEach(el => observer.observe(el));
+    document.querySelectorAll(".service, .why-choose li, section, footer")
+      .forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

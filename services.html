@@ -1,253 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eagle Stone | Services</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #fff;
-    text-align: center;
-    overflow-x: hidden;
-    position: relative;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eagle Stone – Our Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  a { text-decoration: none; }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
 
-  header {
-    background: navy;
-    padding: 15px 20px;
-    position: relative;
-    z-index: 10;
-  }
-  header nav a {
-    color: gold;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  header nav a:hover {
-    text-decoration: underline;
-  }
+    /* Wallpaper backgrounds */
+    .wallpaper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: -1;
+    }
 
-  /* Hero */
-  .hero {
-    padding: 100px 20px;
-    color: gold;
-    position: relative;
-    z-index: 10;
-  }
-  .hero h1 { font-size: 3rem; margin-bottom: 15px; }
-  .hero p { font-size: 1.2rem; }
+    .wallpaper.active {
+      opacity: 1;
+    }
 
-  /* Services */
-  .services, .why-choose {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px 30px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 10px;
-    position: relative;
-    z-index: 10;
-  }
-  .services h2, .why-choose h2 {
-    color: gold;
-    margin-bottom: 30px;
-  }
+    /* Page container */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
+    }
 
-  .service, .reason {
-    margin-bottom: 40px;
-    opacity: 0;
-    transform: translateX(0);
-    transition: all 1s ease;
-  }
-  .fade-left { transform: translateX(-100px); }
-  .fade-right { transform: translateX(100px); }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-  .service a.cta-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: gold;
-    color: navy;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  .service a.cta-button:hover {
-    background: navy;
-    color: gold;
-    border: 2px solid gold;
-  }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
 
-  /* Fullscreen Backgrounds */
-  .backgrounds {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  .backgrounds img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-  }
-  .backgrounds img.active { opacity: 1; }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
 
-  /* Footer */
-  footer {
-    background: navy;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    position: relative;
-    z-index: 10;
-  }
-  footer a {
-    color: gold;
-    margin: 0 10px;
-  }
-  footer a:hover { text-decoration: underline; }
-</style>
+    /* Service Section */
+    .services {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .service {
+      background: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 40px 0;
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: all 1s ease;
+    }
+
+    .service.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .service:nth-child(even) {
+      transform: translateX(80px);
+    }
+
+    .service h2 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .service ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ffcc00;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #e6b800;
+    }
+
+    /* Why Choose Section */
+    .why-choose {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .why-choose h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
+
+    .why-choose ul {
+      list-style: none;
+    }
+
+    .why-choose li {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: all 1s ease;
+    }
+
+    .why-choose li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .why-choose li:nth-child(even) {
+      transform: translateX(80px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.6);
+      margin-top: 60px;
+    }
+  </style>
 </head>
 <body>
+  <!-- Wallpapers -->
+  <div class="wallpaper active" style="background-image: url('garden.jpg');"></div>
+  <div class="wallpaper" style="background-image: url('glasses.jpg');"></div>
+  <div class="wallpaper" style="background-image: url('stocks.jpg');"></div>
 
-<!-- Fullscreen Backgrounds -->
-<div class="backgrounds">
-  <img src="garden.jpg" class="bg-img active">
-  <img src="glasses.jpg" class="bg-img">
-  <img src="stocks.jpg" class="bg-img">
-</div>
+  <!-- Content -->
+  <div class="content">
+    <header>
+      <h1>Our Services</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<!-- Header Navigation -->
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+    <section class="services">
+      <div class="service">
+        <h2>Asset Management</h2>
+        <p>Customized investment portfolios, wealth growth strategies.</p>
+        <ul>
+          <li>Benefits: Optimized investments, risk control</li>
+          <li>Who it’s for: Individuals & Corporates</li>
+        </ul>
+        <a href="#" class="cta">Schedule a Consultation</a>
+      </div>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Our Services</h1>
-  <p>Professional financial solutions tailored for individuals and businesses.</p>
-</section>
+      <div class="service">
+        <h2>Wealth Management</h2>
+        <p>Estate planning, retirement solutions, insurance advisory.</p>
+        <ul>
+          <li>Benefits: Long-term planning & security</li>
+          <li>Who it’s for: Families, professionals</li>
+        </ul>
+        <a href="#" class="cta">Schedule a Consultation</a>
+      </div>
 
-<!-- Services Section -->
-<section class="services">
-  <h2>What We Offer</h2>
+      <div class="service">
+        <h2>Financial Advisory</h2>
+        <p>Corporate advisory, risk management, capital structuring.</p>
+        <ul>
+          <li>Benefits: Strategic guidance</li>
+          <li>Who it’s for: Businesses & organizations</li>
+        </ul>
+        <a href="#" class="cta">Schedule a Consultation</a>
+      </div>
 
-  <div class="service fade-left">
-    <h3>Asset Management</h3>
-    <p>Customized investment portfolios, wealth growth strategies.</p>
-    <ul>
-      <li>Benefits: Personalized portfolio growth.</li>
-      <li>Who it’s for: Individuals & businesses looking to grow wealth.</li>
-    </ul>
-    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+      <div class="service">
+        <h2>Investment Solutions</h2>
+        <p>Stocks, bonds, real estate, private equity.</p>
+        <ul>
+          <li>Benefits: Diversified investment options</li>
+          <li>Who it’s for: Investors & corporates</li>
+        </ul>
+        <a href="#" class="cta">Schedule a Consultation</a>
+      </div>
+
+      <div class="service">
+        <h2>Financial Literacy Programs</h2>
+        <p>Community education, workshops, and seminars.</p>
+        <ul>
+          <li>Benefits: Empowered communities</li>
+          <li>Who it’s for: General public</li>
+        </ul>
+        <a href="#" class="cta">Schedule a Consultation</a>
+      </div>
+    </section>
+
+    <section class="why-choose">
+      <h2>Why Choose Eagle Stone</h2>
+      <ul>
+        <li>Trust & Expertise in the Botswana Market</li>
+        <li>Strong Ethical Foundation</li>
+        <li>Client-Centered Approach</li>
+        <li>Proven Strategies for Long-Term Growth</li>
+        <li>Global + Local Insights</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Eagle Stone. All Rights Reserved.</p>
+    </footer>
   </div>
 
-  <div class="service fade-right">
-    <h3>Wealth Management</h3>
-    <p>Estate planning, retirement solutions, insurance advisory.</p>
-    <ul>
-      <li>Benefits: Secure long-term financial stability.</li>
-      <li>Who it’s for: Families and individuals planning for the future.</li>
-    </ul>
-    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
-  </div>
+  <script>
+    // Wallpaper cycling
+    const wallpapers = document.querySelectorAll(".wallpaper");
+    let current = 0;
 
-  <div class="service fade-left">
-    <h3>Financial Advisory</h3>
-    <p>Corporate advisory, risk management, capital structuring.</p>
-    <ul>
-      <li>Benefits: Expert corporate guidance.</li>
-      <li>Who it’s for: Businesses seeking financial insight and risk management.</li>
-    </ul>
-    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
-  </div>
+    setInterval(() => {
+      wallpapers[current].classList.remove("active");
+      current = (current + 1) % wallpapers.length;
+      wallpapers[current].classList.add("active");
+    }, 6000);
 
-  <div class="service fade-right">
-    <h3>Investment Solutions</h3>
-    <p>Stocks, bonds, real estate, private equity.</p>
-    <ul>
-      <li>Benefits: Diversified investment opportunities.</li>
-      <li>Who it’s for: Investors seeking high-potential returns.</li>
-    </ul>
-    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
-  </div>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.2 });
 
-  <div class="service fade-left">
-    <h3>Financial Literacy Programs</h3>
-    <p>Community education, workshops, and seminars.</p>
-    <ul>
-      <li>Benefits: Improved financial knowledge.</li>
-      <li>Who it’s for: Students, entrepreneurs, and communities.</li>
-    </ul>
-    <a href="contact.html" class="cta-button">Schedule a Consultation</a>
-  </div>
-</section>
-
-<!-- Why Choose Eagle Stone -->
-<section class="why-choose">
-  <h2>Why Choose Eagle Stone</h2>
-  <div class="reason fade-right"><p>Trust & Expertise in the Botswana Market</p></div>
-  <div class="reason fade-left"><p>Strong Ethical Foundation</p></div>
-  <div class="reason fade-right"><p>Client-Centered Approach</p></div>
-  <div class="reason fade-left"><p>Proven Strategies for Long-Term Growth</p></div>
-  <div class="reason fade-right"><p>Global + Local Insights</p></div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>Quick Links:
-    <a href="index.html">Home</a> |
-    <a href="about.html">About Us</a> |
-    <a href="services.html">Services</a> |
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
-
-<script>
-// Fade-in staggered animation on scroll
-const fadeElements = document.querySelectorAll('.fade-left, .fade-right');
-function fadeOnScroll() {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100) {
-      el.style.opacity = 1;
-      el.style.transform = 'translateX(0)';
-    } else {
-      el.style.opacity = 0;
-      if(el.classList.contains('fade-left')) el.style.transform = 'translateX(-100px)';
-      if(el.classList.contains('fade-right')) el.style.transform = 'translateX(100px)';
-    }
-  });
-}
-window.addEventListener('scroll', fadeOnScroll);
-window.addEventListener('load', fadeOnScroll);
-
-// Fullscreen Backgrounds fade on scroll
-const bgImgs = document.querySelectorAll('.backgrounds .bg-img');
-window.addEventListener('scroll', () => {
-  let scrollTop = window.scrollY;
-  let docHeight = document.body.scrollHeight - window.innerHeight;
-  let scrollPercent = scrollTop / docHeight;
-  let index = Math.min(Math.floor(scrollPercent * bgImgs.length), bgImgs.length - 1);
-  bgImgs.forEach((bg, i) => { bg.classList.toggle('active', i === index); });
-});
-</script>
-
+    document.querySelectorAll(".service, .why-choose li").forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
